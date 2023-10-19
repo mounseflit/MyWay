@@ -245,30 +245,44 @@
       e.preventDefault();
       var email = document.getElementById("email").value;
       var pwd = document.getElementById("password").value;
-      let marks;
+      let marks ='';
       if (email === "" || password === "") {
         document.getElementById("errorMessage").innerText = "Please fill in all fields.";
         document.getElementById('password').value = "";
       } else {
 
 
-        fetch('https://mwapi.onrender.com/scrape', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            mail: email,
-            password: pwd
-          })
-        })
-          .then(res => res.json())
-          .then(data => marks = data.message)
-          .catch(err => console.error('Error fetching data:', err));
+
+        
+      
+           
+
+            fetch('https://mwapi.onrender.com/scrape', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    email: email,
+                    password: pwd
+                })
+            })
+            .then(res => res.json())
+            .then(data => {
+  marks = data.message;
+  document.getElementById("try").innerHTML = `
+    <div class="typeform" id="typeform" data-tf-widget="aWjxQXgP" data-tf-opacity="96" data-tf-iframe-props="title=MyWay" data-tf-transitive-search-params="" data-tf-medium="snippet" data-tf-hidden="marks=${marks}" style="width:100%;height:500px;border-radius: 3px;" data-tf-loaded="true">
+      <div class="tf-v1-widget" data-testid="tf-v1-widget">
+        <iframe src="https://form.typeform.com/to/aWjxQXgP?typeform-embed-id=008247961747681831&amp;typeform-embed=embed-widget&amp;typeform-source=127.0.0.1&amp;typeform-medium=snippet&amp;typeform-medium-version=next&amp;embed-opacity=96" data-testid="iframe" allow="microphone; camera" title="MyWay" style="width:100%;height:500px; border: 0px; border-radius: 3px; transform: translateZ(0px);"></iframe>
+      </div>
+    </div>
+  `;
+  console.log(marks);
+})
+            .catch(error => console.error('Error fetching data 💔:', error));
+
 
         document.getElementById("errorMessage").innerText = "Login successful! Continue...";
-        document.getElementById("try").innerHTML = `  <div class="typeform" id="typeform" data-tf-widget="aWjxQXgP" data-tf-opacity="96" data-tf-iframe-props="title=MyWay" data-tf-transitive-search-params="" data-tf-medium="snippet" data-tf-hidden="marks= ${marks}" style="width:100%;height:500px;border-radius: 3px;" data-tf-loaded="true"><div class="tf-v1-widget" data-testid="tf-v1-widget"><iframe src="https://form.typeform.com/to/aWjxQXgP?typeform-embed-id=008247961747681831&amp;typeform-embed=embed-widget&amp;typeform-source=127.0.0.1&amp;typeform-medium=snippet&amp;typeform-medium-version=next&amp;embed-opacity=96" data-testid="iframe" allow="microphone; camera" title="MyWay" style="width:100%;height:500px; border: 0px; border-radius: 3px; transform: translateZ(0px);"></iframe></div></div>   `;
-        console.log(marks);
       }
     });
 
