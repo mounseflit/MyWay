@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>My Way طريقي</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="Mounseflit" />
+    <link rel="shortcut icon" type="x-icon" href="assets/img/logo.png" />
+    <link rel="stylesheet" href="assets/css/main.css">
+
+    <style>
+      body {
+        background-color: blueviolet;
+        margin: 0;
+        overflow: hidden; /* Prevent scrollbars in full screen mode */
+        position: relative;
+      }
+
+      #fullscreen-video {
+        width: 100vw;
+        height: 100vh;
+        object-fit: cover;
+      }
+
+      #back-button {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        transform: rotate(180deg);
+        text-decoration: solid;
+        background-color: blueviolet;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        padding: 10px;
+        cursor: pointer;
+        z-index: 1;
+        transition: transform 0.3s, padding 0.3s; /* Added transition effect */
+      }
+
+      #back-button:hover {
+        transform: rotate(180deg) scale(1.2); /* Apply rotation and scale on hover */
+        padding: 12px; /* Increase padding on hover */
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+        <button id="back-button">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="white"
+              width="24px"
+              height="24px"
+            >
+              <path d="M0 0h24v24H0z" fill="none" />
+              <path
+                d="M19 12l-7 7-1.41-1.41L16.17 13H4v-2h12.17l-4.58-4.59L12 5l7 7z"
+              />
+            </svg>
+          </button>
+      <br> 
+        <a class="header--logo" href="index.html">
+          <img src="assets/img/logo.png" alt="RoadMapper">
+          <p>My Way &nbsp; طريقي</p>
+        </a>
+
+      </header>
+    
+    <video id="fullscreen-video" controls autoplay>
+      <source src="assets/demo.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+
+    <script>
+      const video = document.getElementById("fullscreen-video");
+
+      video.addEventListener("click", () => {
+        if (video.requestFullscreen) {
+          video.requestFullscreen();
+        } else if (video.mozRequestFullScreen) {
+          // Firefox
+          video.mozRequestFullScreen();
+        } else if (video.webkitRequestFullscreen) {
+          // Chrome, Safari and Opera
+          video.webkitRequestFullscreen();
+        } else if (video.msRequestFullscreen) {
+          // IE/Edge
+          video.msRequestFullscreen();
+        }
+      });
+
+      document.getElementById("back-button").addEventListener("click", () => {
+            history.back();
+        });
+  
+    </script>
+  </body>
+</html>

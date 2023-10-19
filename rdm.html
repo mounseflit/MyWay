@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>My Way طريقي</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="author" content="Mounseflit">
+  <link rel="shortcut icon" type="x-icon" href="assets/img/logo.png">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    .l-viewport {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      box-shadow: 0 0 45px 5px rgba(0, 0, 0, 0.85);
+      overflow-y: auto !important;
+    }
+
+    .contner {
+      max-width: 800px;
+      margin: 60px auto;
+      padding: 20px;
+      background-color: rgba(66, 66, 66, 0.712);
+      color: #bdbdbd;
+      box-shadow: 0 0px 90px rgba(67, 3, 87, 0.658);
+      border-radius: 5px;
+    }
+
+    .cont {
+      max-width: 800px;
+      margin: 10px 150px;
+      padding: 20px;
+      background-color: rgba(66, 66, 66, 0.712);
+      color: #bdbdbd;
+      border-radius: 20px;
+    }
+
+    h1 {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      color: #ffffff;
+      text-shadow: 0 0px 50px rgba(54, 0, 90, 0.767);
+      margin-bottom: 20px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .box {
+      display: flex;
+      flex-direction: row;
+      margin: 0px;
+      align-self: center;
+    }
+
+    #goal {
+      width: 340px;
+      min-width: 100px;
+      margin-right: 10px;
+      max-width: 800px;
+      border-radius: 20px !important;
+      margin: 0px auto;
+    }
+
+    label {
+      font-weight: bold;
+      margin-bottom: 5px;
+      color: rgb(230, 201, 255);
+    }
+
+    input[type="text"],
+    input[type="date"],
+    select {
+      max-width: 800px;
+      width: 150px;
+      padding: 5px;
+      border: 2px solid rgb(127, 0, 245);
+      border-radius: 10px;
+      background-color: rgb(0, 0, 0);
+      color: #bdbdbd;
+    }
+
+    input[type="text"],
+    input[type="date"],
+    select:focus {
+      outline: none;
+    }
+
+    input[type="radio"] {
+      margin-right: 5px;
+    }
+
+    button {
+      align-self: center;
+      background-color: rgb(127, 0, 245);
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 5px;
+      cursor: pointer;
+    }
+
+    #generate-roadmap {
+      width: 400px;
+      padding: 8px;
+    }
+
+    #generate-roadmap:hover {
+      font-size: medium;
+      background-color: rgb(85, 2, 161);
+    }
+
+
+    #output {
+      margin-top: 20px;
+    }
+
+    #output>h1 {
+      color: rgb(255, 255, 255);
+      text-align: center;
+      background-color: #7f00f5;
+      font-family: Arial, sans-serif;
+      text-shadow: 0 0px 50px rgba(54, 0, 90, 0.767);
+      margin-bottom: 0px;
+      font-size: xx-large;
+      font-weight: 900;
+      border-radius: 20px;
+    }
+
+
+    h2 {
+      color: rgba(255, 255, 255, 0.767);
+      text-align: center;
+      font-family: Arial, sans-serif;
+      text-shadow: 0 0px 50px rgba(54, 0, 90, 0.767);
+      margin-bottom: 10px;
+    }
+
+
+    #roadmap-output {
+      margin-top: 20px;
+    }
+
+    #roadmap-output>h2 {
+      margin-bottom: 10px;
+      color: rgb(127, 0, 245);
+      text-align: center;
+    }
+
+    #roadmap-output>h3 {
+      margin-bottom: 10px;
+      color: rgb(182, 182, 182);
+      text-align: center;
+      font-family: Arial, sans-serif;
+      text-shadow: 0 0px 50px rgba(54, 0, 90, 0.767);
+    }
+
+    #generated-roadmap {
+      padding: 10px;
+      border: 1px solid #888888;
+      border-radius: 5px;
+      background-color: rgba(0, 0, 0, 0.3);
+      color: #bdbdbd;
+    }
+
+    #toggle-button {
+      background-color: rgba(0, 0, 0, 0);
+      margin-left: 10px;
+      margin-top: 7px;
+    }
+
+    .introo h1 {
+      position: relative;
+      font-size: 68px;
+      font-weight: 900;
+      line-height: 1;
+      z-index: 1
+    }
+
+    /* Responsive styles */
+    @media (max-width: 600px) {
+
+      .cont {
+        max-width: 800px;
+        margin: 10px auto;
+        padding: 20px;
+        background-color: rgba(66, 66, 66, 0.712);
+        color: #bdbdbd;
+        border-radius: 20px;
+      }
+
+
+      input[type="text"],
+      input[type="date"],
+      select {
+        padding: 5px;
+      }
+
+
+      #goal {
+        width: 230px;
+        height: 25px;
+        min-width: 100px;
+        margin-right: 10px;
+        max-width: 800px;
+        border-radius: 20px !important;
+        margin: 0px auto;
+      }
+
+      button {
+        padding: 8px;
+      }
+
+      #generate-roadmap {
+        width: 230px;
+        padding: 8px;
+      }
+
+      #toggle-button {
+        background-color: rgba(0, 0, 0, 0);
+        margin-left: 10px;
+        margin-top: 0px;
+      }
+
+      .loader {
+        border: 8px solid #f3f3f3;
+        border-top: 8px solid #7f00f5;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        animation: spin 2s linear infinite;
+        position: relative;
+        top: 50%;
+        left: 45%;
+        display: none;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- notification for small viewports and landscape oriented smartphones -->
+  <div class="device-notification">
+    <a class="device-notification--logo" href="index.html">
+      <img src="assets/img/logo.png" alt="RoadMapper">
+      <p>My Wa&nbsp;y &nbsp; طريقي</p>
+    </a>
+    <p class="device-notification--message">My Way have so much to offer that we must request you orient your device to
+      portrait or find a larger screen. You won't be disappointed.</p>
+  </div>
+
+  <div class="perspective effect-rotate-left">
+
+    <div class="container">
+      <div class="outer-nav--return"></div>
+      <div id="viewport" class="l-viewport">
+        <div class="l-wrapper">
+          <header class="header">
+
+            <button id="back-button">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="24px" height="24px">
+                <path d="M0 0h24v24H0z" fill="none" />
+                <path d="M19 12l-7 7-1.41-1.41L16.17 13H4v-2h12.17l-4.58-4.59L12 5l7 7z" />
+              </svg>
+            </button><br> <br> <br>
+            <a class="header--logo" href="index.html">
+              <img src="assets/img/logo.png" alt="RoadMapper">
+              <p>My Wa&nbsp;y &nbsp; طريقي</p>
+            </a>
+
+          </header>
+
+          <ul class="l-main-content main-content">
+
+
+
+            <li class="l-section section--is-active">
+              <div class="introo">
+                <br><br><br><br>
+
+                <h1>ROAD<span
+                    style="color: rgb(127, 0, 245);text-shadow: 0 0px 50px rgba(54, 0, 90, 0.767);">MAPPER</span>
+                </h1>
+              </div>
+
+              <body>
+
+                <div class="contner">
+                  <br><br>
+                  <form id="roadmap-form">
+                    <div class="box">
+                      <input type="text" id="goal" placeholder="My Goal is..." required>
+                      <button id="toggle-button"><svg xmlns="http://www.w3.org/2000/svg" height="1.5em"
+                          viewBox="0 0 512 512">
+                          <path
+                            d="M256 0a256 256 0 1 0 0 512A256 256 0 1 0 256 0zM135 241c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l87 87 87-87c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9L273 345c-9.4 9.4-24.6 9.4-33.9 0L135 241z" />
+                        </svg></button>
+                    </div>
+
+
+                    <div class="cont" id="additional-inputs" style="display: none;">
+                      <br>
+
+                      <label for="resource-type">Resource Type :&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                      <input type="radio" id="free" name="resource-type" value="free" checked>
+                      <label for="free" style="color: black;">Free</label>
+                      <input type="radio" id="paid" name="resource-type" value="paid">
+                      <label for="paid" style="color: black;">Paid</label>
+                      <input type="radio" id="none" name="resource-type" value="none">
+                      <label for="none" style="color: black;">None</label><br><br>
+
+                      <label for="level">Level
+                        :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                      <select id="level">
+                        <option value="beginner">Beginner</option>
+                        <option value="normal" selected>Normal</option>
+                        <option value="pro">Pro</option>
+                        <option value="expert">Expert</option>
+                      </select><br><br>
+
+                      <label for="start-date">Start Date
+                        :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                      <input type="date" id="start-date" required><br><br>
+
+                      <label for="end-date">End Date :
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                      <input type="date" id="end-date" required><br>
+
+
+
+
+                    </div>
+                    <br><br>
+                    <button type="button" id="generate-roadmap">Generate
+                      Roadmap</button><br>
+
+                  </form>
+                  <br>
+                  <div class="loader" id="loader" style="display: none;"></div>
+
+                  <div id="roadmap-output" style="display: none;">
+
+
+                  </div>
+
+
+                </div>
+
+                <div id="output" style="display: none;">
+
+                  <h1>
+
+                  </h1>
+
+                  <section class="timeline">
+                    <ul id="steps">
+
+                    </ul>
+                  </section>
+
+                </div>
+
+                <br><br><br>
+            </li>
+          </ul>
+
+        </div>
+      </div>
+    </div>
+  </div><a href="https://mounseflit.surge.sh" style="text-align: center;">
+    <h4>Made By @Mounseflit</h4>
+  </a>
+
+
+  <script>
+    document.getElementById("back-button").addEventListener("click", () => {
+      history.back();
+    });
+
+    const toggleButton = document.getElementById('toggle-button');
+    const additionalInputs = document.getElementById('additional-inputs');
+
+
+    toggleButton.addEventListener('click', function () {
+
+      additionalInputs.style.display = additionalInputs.style.display === 'none' ? 'block' : 'none';
+      if (additionalInputs.style.display === 'block') {
+        toggleButton.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" height="1.5em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM377 271c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-87-87-87 87c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9L239 167c9.4-9.4 24.6-9.4 33.9 0L377 271z"/></svg>';
+      } else {
+        toggleButton.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" height="1.5em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M256 0a256 256 0 1 0 0 512A256 256 0 1 0 256 0zM135 241c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l87 87 87-87c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9L273 345c-9.4 9.4-24.6 9.4-33.9 0L135 241z"/></svg>';
+      }
+    });
+
+
+
+    document.getElementById("generate-roadmap").addEventListener("click", async function () {
+      const goal = document.getElementById("goal").value;
+      const loader = document.getElementById("loader");
+      const roadmapoutput = document.getElementById('output');
+      const grey = document.getElementById('roadmap-output');
+
+      loader.style.display = 'block';
+      let prompt = '';
+      if (!goal) {
+        alert('Please enter a goal.');
+        roadmapoutput.style.display = 'none';
+        grey.style.display = 'none';
+        loader.style.display = 'none';
+        return;
+      }
+
+      const startDate = new Date(document.getElementById("start-date").value);
+      const endDate = new Date(document.getElementById("end-date").value);
+      const today = new Date();
+      console.log(today);
+
+
+      if (startDate <= today || endDate <= today) {
+        alert('Dates must be in the future and not today.');
+        roadmapoutput.style.display = 'none';
+        grey.style.display = 'none';
+        loader.style.display = 'none';
+        return;
+      }
+
+      if (startDate >= endDate) {
+        alert('Start date must be before end date and not the same day.');
+        roadmapoutput.style.display = 'none';
+        grey.style.display = 'none';
+        loader.style.display = 'none';
+        return;
+      }
+
+
+      const level = document.getElementById("level").value;
+      const resourceType = document.querySelector('input[name="resource-type"]:checked').value;
+
+      prompt = "TASK : you are specialized in time managing and i want you to make me a step by step roadmap that treat the subject of ' " + goal + " ' that is my goal. i want this roadmap to be on a form of json steps of each task to reach the final goal in a max of five steps. my level is " + level + " so adapt the map to me. ";
+
+      if (resourceType != 'none') {
+        prompt = prompt + " also add " + resourceType + " valid one resource or videos links for each step if possible to help me learn and complete the steps ";
+      }
+
+      if (startDate != 'Invalid Date' || endDate != 'Invalid Date') {
+        prompt = prompt + " also add some time management and integrate it in the roadmap like a timeline. ";
+      }
+
+      if (startDate != 'Invalid Date') {
+        prompt = prompt + " start date is " + startDate;
+      }
+      if (endDate != 'Invalid Date') {
+        prompt = prompt + " end date is " + endDate;
+      }
+      if (resourceType === 'none') {
+        prompt = prompt + ` the answear should be a JSON and follow this EXAMPLE : 
+         
+            [
+  {
+    "step": 1,
+    "description": "BLABLABLA",
+    "objective": "XXXXXXXX.",
+    "tasks": "XXXXXXXXXX.",
+    "time_management": "Dedicate XXXXX to complete this stage."
+  },
+  {
+    "step": "X",
+    "description": "BLABLABLA",
+    "objective": "XXXXXXXX.",
+    "tasks": "XXXXXXXXXX.",
+    "time_management": "Dedicate XXXXX to complete this stage."
+  }
+]`;
+      } else {
+
+        prompt = prompt + `the answear should be a JSON and follow this EXAMPLE : 
+
+            [
+  {
+    "step": 1,
+    "description": "BLABLABLA",
+    "objective": "XXXXXXXX.",
+    "tasks": "XXXXXXXXXX.",
+    "resources": "https://XXXXXXXXXX",
+    "time_management": "Dedicate XXXXX to complete this stage."
+  },
+  {
+    "step": "X",
+    "description": "BLABLABLA",
+    "objective": "XXXXXXXX.",
+    "tasks": "XXXXXXXXXX.",
+    "resources": "https://XXXXXXXXXX",
+    "time_management": "Dedicate XXXXX to complete this stage."
+  }
+]`;
+
+      }
+
+
+
+
+
+      function rot13Encrypt(inputString) {
+    var result = '';
+    for (var i = 0; i < inputString.length; i++) {
+      var charCode = inputString.charCodeAt(i);
+  
+      if (65 <= charCode && charCode <= 90) {
+        result += String.fromCharCode(((charCode - 65 + 13) % 26) + 65);
+      }
+      
+      else if (97 <= charCode && charCode <= 122) {
+        result += String.fromCharCode(((charCode - 97 + 13) % 26) + 97);
+      }
+
+      else {
+        result += inputString.charAt(i);
+      }
+    }
+    return result;
+  }
+  
+
+ 
+
+
+      
+      const apiUrl = 'https://api.openai.com/v1/engines/text-davinci-003/completions';
+      const maxTokens = 800;
+
+      fetch(apiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${rot13Encrypt("fx-duOeHipmm8J1RSp6fwBqG3OyoxSWw4d9TtHwu0pWdkvW91JN")}`,
+        },
+        body: JSON.stringify({
+          prompt: prompt,
+          max_tokens: maxTokens,
+        }),
+      })
+        .then(response => response.json())
+        .then(data => {
+
+
+          loader.style.display = "none";
+
+          additionalInputs.style.display = additionalInputs.style.display === 'block' ? 'none' : 'none';
+          if (additionalInputs.style.display === 'block') {
+            toggleButton.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" height="1.5em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM377 271c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-87-87-87 87c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9L239 167c9.4-9.4 24.6-9.4 33.9 0L377 271z"/></svg>';
+          }
+
+          document.getElementById('goal').value = "";
+          document.getElementById("start-date").value = "";
+          document.getElementById("end-date").value = "";
+          document.getElementById("level").value = "";
+          document.querySelector('input[name="resource-type"]:checked').value = false;
+
+          prompt = "";
+
+          const generatedText = data.choices[0].text;
+          console.log(generatedText);
+
+          grey.style.display = 'block';
+          roadmapoutput.style.display = 'block';
+
+          grey.innerHTML = '<br><br><h2> Your Roadmap is READY 🚀</h2> <br> <h3>⬇️Scroll Down For Results⬇️</h3><br><br>';
+          roadmapoutput.innerHTML = '<br><br><h1>Roadmap to ' + goal + ' :</h1> <br> <section class="timeline"> <ul id="steps"> </ul> </section>';
+
+          const jsonStartIndex = generatedText.indexOf('[');
+          const jsonContent = generatedText.substring(jsonStartIndex);
+          const parsedData = JSON.parse(jsonContent);
+
+          const stepsContainer = document.getElementById('steps');
+
+          parsedData.forEach((stepData, index) => {
+            const steptab = document.createElement('li');
+            const stepDiv = document.createElement('div');
+            stepDiv.classList.add('reveal');
+
+
+            const stepHeading = document.createElement('h2');
+            stepHeading.innerHTML = `<span style="color: white;">${index + 1}. </span> &nbsp;${stepData.description} <br><br>`;
+
+            for (const key in stepData) {
+              if (key !== 'step') {
+                const stepInfo = document.createElement('p');
+                if (key === 'objective') {
+                  stepInfo.innerHTML = `🎯&nbsp;<b>${key.charAt(0).toUpperCase() + key.slice(1).replace('_', ' ')}</b>&nbsp;:&nbsp; ${stepData[key]}<br><br>`;
+                  stepDiv.appendChild(stepInfo);
+                }
+                if (key === 'time_management') {
+                  stepInfo.innerHTML = `⌛️&nbsp;<b>${key.charAt(0).toUpperCase() + key.slice(1).replace('_', ' ')}</b>&nbsp;:&nbsp; ${stepData[key]}<br><br>`;
+                  stepDiv.appendChild(stepInfo);
+                }
+                if (key === 'tasks') {
+                  stepInfo.innerHTML = `📌&nbsp;<b>${key.charAt(0).toUpperCase() + key.slice(1).replace('_', ' ')}</b>&nbsp;:&nbsp; ${stepData[key]}<br><br>`;
+                  stepDiv.appendChild(stepInfo);
+                }
+                if (key === 'resources') {
+                  stepInfo.innerHTML = `🔗&nbsp;Resources&nbsp;:&nbsp; <a href="${stepData[key]}" style="color: rgb(229, 200, 255);" target="_blank">${stepData[key]}</a><br><br>`;
+                  stepDiv.appendChild(stepInfo);
+                }
+              }
+            }
+
+            stepDiv.prepend(stepHeading);
+            steptab.appendChild(stepDiv);
+            stepsContainer.appendChild(steptab);
+
+          });
+
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+
+    });
+
+
+
+
+  </script>
+
+
+
+  </script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery-2.2.4.min.js"><\/script>')</script>
+  <script src="assets/js/functions-min.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/scrollReveal.js/4.0.0-beta.26/scrollreveal.js'></script>
+  <script src="./script.js"></script>
+  <script src='assets\js\script.js'></script>
+
+
+
+</body>
+
+</html>

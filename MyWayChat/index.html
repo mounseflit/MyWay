@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>chatroom</title>
+  <script type='text/javascript' src='script.min.js'></script>
+  <!-- <script type='text/javascript' src='https://cdn.scaledrone.com/scaledrone.min.js'></script> -->
+  <link rel="shortcut icon" type="x-icon" href="logo.png">
+  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <style>
+   
+  </style>
+</head>
+<body>
+  <div class="content">
+    <div class="messages">
+     <h4 style="text-decoration: none; color: white; text-align: center;"><a href="https://Roadmapper.surge.sh" style="text-decoration: none; color: white;"><img src="logo.png" style="place-self: center;"></img><br>My Ways &nbsp;طريقي</a></h4> 
+     <h1 style="color: white; text-decoration: underline; text-align: center;"><u>My Way Messanger</u></h1>
+      
+
+    </div>
+    <form class="footer" onsubmit="return false;">
+      <input type="text" placeholder="Your message..">
+      <button type="submit">Send</button>
+    </form>
+  </div>
+
+  <template data-template="message">
+    <div class="message">
+      <div class="message__name"></div>
+      <div class="message__bubble" id="t"></div>
+    </div>
+  </template>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
