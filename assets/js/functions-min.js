@@ -1236,7 +1236,7 @@
               .eq(t)
               .children()
               .addClass("section--prev"),
-        0 !== e && e !== i && e!== 3 && e !== 2
+         e !== i && e!== 3 && e !== 2     // THAT BOTTON THAT U SEARCH FOR THAT HELP TO LOGIN IN SOME PAGES
           ? $(".header--cta").addClass("is-active")
           : $(".header--cta").removeClass("is-active");
     }

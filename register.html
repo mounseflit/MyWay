@@ -7,18 +7,177 @@
     <meta name="description" content="bondagani lhaj loutmani fraaa drssat mi mi">
     <meta name="author" content="Sidi khalkhal">
     <meta name="generator" content="Hugo 0.111.3">
-    <title>My Way Signin</title>
+    <title>My Way SignIn</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/sign-in/">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-
-    
-
 <link href="/assets/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="shortcut icon" type="x-icon" href="assets/img/logo.png" />
+<link rel="stylesheet" href="assets/css/main.css">
 
 <style>
+header {
+    display: block
+}
+
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    height: 70px;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    z-index: 10
+}
+
+.header--logo {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    text-decoration: none;
+    color: #fff
+}
+
+.header--logo p {
+    margin: 0 0 0 10px;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.header--nav-toggle {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    width: 50px;
+    height: 50px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    cursor: pointer
+}
+
+.header--nav-toggle span,
+.header--nav-toggle::before,
+.header--nav-toggle::after {
+    content: "";
+    position: relative;
+    width: 16px;
+    height: 2px;
+    background-color: #fff
+}
+
+.header--nav-toggle::before {
+    bottom: 5px;
+    width: 23px
+}
+
+.header--nav-toggle::after {
+    top: 5px;
+    width: 23px
+}
+
+.header--cta {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    padding: 0 20px;
+    line-height: 30px;
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 10px;
+    border-color: rgba(128, 0, 255, 0.541);
+    color: rgba(128, 0, 255, 0.541);
+    background-color: #000000;
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition: opacity .4s ease-in-out, visibility 0s .4s;
+    transition: opacity .4s ease-in-out, visibility 0s .4s
+}
+
+.header--cta:focus {
+    outline: none
+}
+
+.header--cta:hover {
+    color: #fff;
+    background-color: rgba(128, 0, 255, 0.541);
+    border-radius: 10px;
+    border-color: #00000000;
+}
+
+.header--cta.is-active {
+    opacity: 1;
+    visibility: visible;
+    border-radius: 10px;
+    border-color: rgba(128, 0, 255, 0.726);
+    color: rgba(128, 0, 255, 0.712);
+    background-color: #000000;
+    -webkit-transition: opacity .4s ease-in-out .4s;
+    transition: opacity .4s ease-in-out .4s
+}
+
+.header--cta.is-active:hover {
+    border-radius: 10px;
+    border-color: #00000000;
+    color: #fff;
+    background-color: rgba(128, 0, 255, 0.541);
+    -webkit-transition: opacity .4s ease-in-out .4s;
+    transition: opacity .4s ease-in-out .4s
+}
+  #back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    transform: rotate(180deg);
+    text-decoration: solid;
+    background-color: blueviolet;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1;
+    transition: transform 0.3s, padding 0.3s; /* Added transition effect */
+  }
+
+  #back-button:hover {
+    transform: rotate(180deg) scale(1.2); /* Apply rotation and scale on hover */
+    padding: 12px; /* Increase padding on hover */
+  }
+ 
+
     html,body {
         height: 100%;
     }
@@ -152,6 +311,7 @@
     *{
         color: aliceblue;
     }
+
 </style>
 
     
@@ -159,6 +319,28 @@
 <link href="sign-in.css" rel="stylesheet">
   </head>
   <body class="text-center">
+    <header class="header">
+        <button id="back-button">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="white"
+              width="24px"
+              height="24px"
+            >
+              <path d="M0 0h24v24H0z" fill="none" />
+              <path
+                d="M19 12l-7 7-1.41-1.41L16.17 13H4v-2h12.17l-4.58-4.59L12 5l7 7z"
+              />
+            </svg>
+          </button>
+      <br> 
+        <a class="header--logo" href="index.html">
+          <img src="assets/img/logo.png" alt="RoadMapper">
+          <p>My Way &nbsp; طريقي</p>
+        </a>
+
+      </header>
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
       <symbol id="check2" viewBox="0 0 16 16">
         <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
@@ -197,9 +379,15 @@
             <label for="floatingPassword2" class="text-body-secondary">Confirm it</label>
         </div>
 
-        <button class="w-100 btn btn-lg btn-bd-primary mt-4" type="submit">Sign in</button>
-        <p class="mt-5 mb-3 text-body-secondary">I already have an account, <a href="./login.html" class="text-body-secondary">Login here ✅</a></p>
+        <button class="w-100 btn btn-lg btn-bd-primary mt-4" type="submit">Sign up</button>
+        <p class="mt-5 mb-3 "style="color: #000000;">I already have an account, <a href="./login.html" class="text-body-secondary">Login here ✅</a></p>
     </form>
     </main>
   </body>
+  <script>
+    document.getElementById("back-button").addEventListener("click", () => {
+      history.back();
+  });
+
+</script>
 </html>
