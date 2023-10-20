@@ -250,22 +250,16 @@
         document.getElementById("errorMessage").innerText = "Please fill in all fields.";
         document.getElementById('password').value = "";
       } else {
-
-
-
-        
-      
-           
-
             fetch('https://mwapi.onrender.com/scrape', {
-                method: 'POST',
+                method: 'GET',
                 headers: {
                     'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    email: email,
-                    password: pwd
-                })
+                }
+                // ,
+                // body: JSON.stringify({
+                //     email: email,
+                //     password: pwd
+                // })
             })
             .then(res => res.json())
             .then(data => {
