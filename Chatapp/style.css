@@ -1,0 +1,91 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 16px;
+    height: 100vh;
+  }
+  .content {
+    box-shadow: rgba(156, 172, 172, 0.2) 0px 2px 2px, rgba(156, 172, 172, 0.2) 0px 4px 4px, rgba(156, 172, 172, 0.2) 0px 8px 8px, rgba(156, 172, 172, 0.2) 0px 16px 16px, rgba(156, 172, 172, 0.2) 0px 32px 32px, rgba(156, 172, 172, 0.2) 0px 64px 64px;
+    border-radius: 10px;
+    height: 100vh;
+    max-height: 600px;
+    width: 100vw;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+  }
+  .messages {
+    flex-grow: 1;
+    padding: 20px 30px;
+    overflow: auto;
+  }
+  .message {
+    display: flex;
+    flex-direction: column;
+  }
+  .message--mine {
+    align-items: flex-end;
+  }
+  .message--theirs {
+    align-items: flex-start;
+  }
+  .message__name {
+    padding: 10px 0;
+    color: rgb(255, 255, 255);
+  }
+  .message__bubble {
+    padding: 8px 15px 8px 15px;
+    border-radius: 20px;
+  }
+  .message--theirs .message__bubble {
+    background: rgb(151, 151, 151);
+    color: rgb(0, 0, 0);
+  }
+  .message--mine .message__bubble {
+    background: #ffffff;
+  }
+  .footer {
+    line-height: 76px;
+    border-top: 1px solid rgba(156, 172, 172, 0.2);
+    display: flex;
+    flex-shrink: 0;
+  }
+  input {
+    height: 50px;
+    border: 1px solid rgb(255, 255, 255);
+    flex-grow: 1;
+    margin: 10px;
+    padding: 0px 15px 5px;
+    font-size: 16px;
+    background: transparent;
+    color: white;
+    border-radius: 10px;
+  }
+  button {
+    border: none;
+    background: transparent;
+    padding: 0 30px;
+    margin: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    color: white;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 20px;
+    transition: cubic-bezier(0.77, 0, 0.175, 1);
+  }
+  button:hover {
+    border: none;
+    background-color: white;
+    padding: 0 30px;
+    margin: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    color: rgb(0, 0, 0);
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 20px;
+    transition: cubic-bezier(0.77, 0, 0.175, 1);
+  }
