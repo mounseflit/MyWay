@@ -44,7 +44,7 @@ You can access "My Way" through the web and mobile platforms, ensuring that you 
 7. Contributing
 We welcome contributions and feedback from users and developers. If you have ideas for improvements, find issues, or want to collaborate, please check our GitHub repository for further details.
 8. Support and Feedback
-If you encounter any issues, have questions, or would like to provide feedback, please reach out to our support team at support@mywayapp.com.
+If you encounter any issues, have questions, or would like to provide feedback, please reach out to our support team at myway.core.team@gmail.com.
 9. License
 "My Way" is released under the MIT License.
 ________________________________________
@@ -52,5 +52,7 @@ Thank you for choosing "My Way" as your academic and career pathway advisor. We 
 Best wishes for your academic and career endeavors!
 Sincerely, The "My Way" Team
 
-🚀 Demo
+🚀 Demo web app
 https://my-way.surge.sh
+🚀 Demo mobile app
+https://mywayapp.surge.sh/myway.apk
